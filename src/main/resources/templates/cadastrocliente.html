@@ -26,7 +26,7 @@ and open the template in the editor.
      <div class="row">
          <div class="col-sm-12">
              <div class="btn-group btn-group-justified">
-                <a href="index" class="btn btn-primary">Home</a>
+                <a href="home" class="btn btn-primary">Home</a>
                 <a href="cadastrocliente" class="btn btn-primary">Cadastro</a>
             </div>
          </div>
@@ -36,11 +36,28 @@ and open the template in the editor.
          <div class="col-sm-12">
              <h5>Entre com os dados abaixo para realizar o cadastro do cliente</h5>
              
-             <form name="formcadastrocliente" action="#">
-                 
-                 
-                 
-             <button type="submit">Salvar</button>    
+             
+             
+             <form action="#" th:action="@{/salvar}" th:object="${cliente}" method="post">
+             
+             <label>Nome do Condutor</label>
+             <input type="text" name="Nome" value="digite seu nome" size="50" th:field="*{nome}" /><br/>
+             
+             <label>Habilitação</label>
+	     <input type="text" name="Habilitacao" value="digite seu nome" size="50" th:field="*{habilitacao}" /><br/><br/>
+             <label>CPF     </label>
+	     <input type="text" name="Habilitacao" value="digite seu nome" size="50" th:field="*{cpf}" /><br/>
+	     <label>RG</label>
+	     <input type="text" name="Habilitacao" value="digite seu nome" size="50" th:field="*{rg}" /><br/>
+	     <label>Placa do Veiculo</label>
+	     <input type="text" name="Habilitacao" value="digite seu nome" size="50" th:field="*{placa}" /><br/>
+	     
+             
+             <button type="submit">Salvar</button>
+             
+             
+             
+             
              </form>
          </div>
      </div>

@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 package com.parcial2.contraladores;
-
+import com.parcial2.modelodados.Cliente;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,12 +21,17 @@ public class ClienteController {
     
     @RequestMapping(value = "/cadastrocliente", method = RequestMethod.GET)
     public String novoCliente(Model model) {
-		
-    //model.addAttribute("Cadastrocliente", new Cadastrocliente());
+    model.addAttribute("cliente", new Cliente());
+      
     return "cadastrocliente";
     }
     
-    
+    @RequestMapping(value = "/salvar", method = RequestMethod.POST)
+	public String salvar(@ModelAttribute Cliente cliente, Model model){
+                cliente.informacoesCliente();
+                model.addAttribute("cliente", new Cliente());
+	    return "cadastrocliente";
+	}
     
     
 }
