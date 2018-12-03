@@ -16,8 +16,33 @@ public class Cliente {
     private String cpf; 
     private String rg;
     private String placa;
+    private String dataentrada;
+    private String datasaida;
+    private Float valorpago;
 
+    public String getDataentrada() {
+        return dataentrada;
+    }
 
+    public void setDataentrada(String dataentrada) {
+        this.dataentrada = dataentrada;
+    }
+
+    public String getDatasaida() {
+        return datasaida;
+    }
+
+    public void setDatasaida(String datasaida) {
+        this.datasaida = datasaida;
+    }
+
+    public Float getValorpago() {
+        return valorpago;
+    }
+
+    public void setValorpago(Float valorpago) {
+        this.valorpago = valorpago;
+    }
 	
 	public void informacoesCliente() {
 		System.out.println("Nome: " + this.getNome());

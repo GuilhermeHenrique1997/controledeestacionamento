@@ -31,7 +31,7 @@ and open the template in the editor.
              <div class="btn-group btn-group-justified">
                 <a href="home" class="btn btn-primary">Home</a>
                 <a href="cadastrocliente" class="btn btn-primary">Cadastro</a>
-                
+                <a href="historico" class="btn btn-primary">Historico</a>
             </div>
          </div>
      </div>
@@ -60,18 +60,41 @@ and open the template in the editor.
              <label>Digite a placa para registrar a saida do veiculo</label>
              <input type="text" name="Habilitacao" /><br/>
              <input type="submit" value="Processa Saida" name="enviarplaca" />
-         </form>-->
+         </form>
+        -->
         </div>
+        
+        
+        
+        
     </div>
     
     <div class="row">
         <div class="col-sm-4">
         <h5>Vagas Ocupadas</h5>
-        
+
+
+<script>
+function contaLinhasTabela(id){  
+var tabela = document.getElementById('idDaTabela');  
+var linhas = tabela.getElementsByTagName('tr');  
+var numero = linhas.length -1;
+var numero1= 300 - numero;
+alert('O estacionamento possui ' + numero + ' vagas ocupadas e possui ' + numero1 + ' vagas disponiveis');  
+}  
+
+
+</script>
+
+<input type="button" onclick="contaLinhasTabela('tabela');" value="Verificador de Vagas Ingeligente"/>
+
+
         </div>
         <div class="col-sm-4">
-        <h5>Total de Vagas</h5>   
+        <!--<h5>Total de Vagas  :  300.</h5>  --> 
         </div>
+       
+        
     </div>
     
     <div class="row">
@@ -80,9 +103,8 @@ and open the template in the editor.
         
          <label>Pesquisar cliente cadastrado pelo nome do proprietario</label>
          <form th:action="@{/pesquisaCliente}" th:object="${pesquisa}" method="post">
-             <label>Digite a placa para Saida do veiculo</label>
-             <input type="text" name="Habilitacao" th:field="*{pesquisaCliente}"/>
-             <button type="submit">salvar</button> 
+            <input type="text" name="Habilitacao" th:field="*{pesquisaCliente}"/>
+            <button type="submit">salvar</button> 
          </form>
          
          
@@ -94,6 +116,17 @@ and open the template in the editor.
     <div class="row">
         <div class="col-sm-12">
         <h5>Veiculos Ativos no Estacionamento</h5>
+        
+        <table id = "idDaTabela" border="1" style="width:300px" class="table table-bordered">
+	    <tr>
+	        <td>Nome</td>
+	        <td>Placa</td>
+	    </tr>
+	    <tr th:each="cliente : ${clientes}">
+	     <td th:text="${cliente.nome}"></td>
+	     <td th:text="${cliente.placa}"></td>
+	    </tr>
+	</table>
 
     </div>
 </div>

@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class Conexao {
     private static final String STRING_CONEXAO = 
-            "jdbc:postgresql://localhost:5432/postgres";
+            "jdbc:postgresql://localhost:5432/postgres1";
     private static final String USUARIO_CONEXAO = "postgres";
     private static final String SENHA_CONEXAO = "123456";
     

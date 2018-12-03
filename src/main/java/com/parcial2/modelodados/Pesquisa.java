@@ -15,7 +15,7 @@ public class Pesquisa {
     
     
     public void pesquisaClientef() {
-        System.out.println("Entrada Veiculo: " + this.getPesquisaCliente());
+        System.out.println("Pesquisa Cliente: " + this.getPesquisaCliente());
     }
     
 
